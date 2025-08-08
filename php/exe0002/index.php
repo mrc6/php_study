@@ -6,9 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Some title</h1>
+    <h1>Arrays</h1>
     <?php 
-      echo "Your code here!!!";
+      $my_array = [1, 2, "Maria", 33.2];
+      var_dump($my_array);
     ?>
 </body>
 </html>
