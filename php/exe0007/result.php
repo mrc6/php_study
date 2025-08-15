@@ -18,10 +18,16 @@
         //var_dump($dados);
         $cotacao = $dados["value"][0]["cotacaoCompra"];
 
-        $real = $_GET["din"] ?? 101;
-        $dolar = $real / $cotacao;
-        $padrao = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
-        echo "Seus " . numfmt_format_currency($padrao, $real, "BRL") . " equivalem à " . numfmt_format_currency($padrao, $dolar, "USD") . "<br />";
+        $real = $_GET["din"] ?? 0;
+        //var_dump($real);
+        
+        if ($real == "") {
+		  echo "Você precisa informar algum valor! <br />";
+		} else {
+		  $dolar = $real / $cotacao;
+          $padrao = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
+          echo "Seus " . numfmt_format_currency($padrao, $real, "BRL") . " equivalem à " . numfmt_format_currency($padrao, $dolar, "USD") . "<br />";	
+		}
       ?>
       <button onclick="javascript:history.go(-1)">Voltar</button>
     </main>
